@@ -16,7 +16,7 @@
 	<link rel="stylesheet" media="all" href="../css/input.css">
 	<style>
 	body {
-		background: #FFFFFF;
+		background: #ffffff; 
 	}
 	.bubble-container {
 		height: 100vh;
@@ -88,7 +88,7 @@ var chatWindow = new Bubbles(document.getElementById("chat"), "chatWindow", {
 // "Basic chat-bubble Example" (1-basics.html)
 var convo = {
   ice: {
-    says: ["Hi! I want to ask you some questions to understand more about your situation.", "In the past few months, how often have you felt little interest in doing things?  ", "Please rate from 1 to 5."],
+    says: ["Hi! I want to ask you some questions to understand more about your situation.", "In the past few months, how often have you felt little interest in doing things?  ", "Please rate from 1 to 5.  (1: Very rarely, 5: Very Often)"],
     reply: [
       {
         question: "1",
@@ -113,7 +113,7 @@ var convo = {
     ]
   },
   q2: {
-    says: ["I see.", "How often have you felt getting far away from everyone?  ", "Please rate from 1 to 5."],
+    says: ["I see.", "How often have you felt getting far away from everyone?  ", "Please rate from 1 to 5.  (1: Very rarely, 5: Very Often)"],
     reply: [
       {
         question: "1",
@@ -138,33 +138,168 @@ var convo = {
     ]
   },
   q3: {
-    says: ["I see.", "Have you been diagnosed with any of form of depression in the past?  ", "Please answer Yes or No."],
+    says: ["I see.", "How often have you felt the inability to smile or laugh?  ", "Please rate from 1 to 5.  (1: Very rarely, 5: Very Often)"],
     reply: [
       {
-        question: "yes",
+        question: "1",
         answer: "q4"
       },
       {
-        question: "no",
+        question: "2",
+        answer: "q4"
+      },
+      {
+        question: "3",
+        answer: "q4"
+      },
+      {
+        question: "4",
+        answer: "q4"
+      },
+      {
+        question: "5",
         answer: "q4"
       }
     ]
   },
   q4: {
+    says: ["I see.", "How often have you felt irritation and bouts of breaking down?  ", "Please rate from 1 to 5.  (1: Very rarely, 5: Very Often)"],
+    reply: [
+      {
+        question: "1",
+        answer: "q5"
+      },
+      {
+        question: "2",
+        answer: "q5"
+      },
+      {
+        question: "3",
+        answer: "q5"
+      },
+      {
+        question: "4",
+        answer: "q5"
+      },
+      {
+        question: "5",
+        answer: "q5"
+      }
+    ]
+  },
+  q5: {
+    says: ["I see.", "How often have you felt having suicidal thoughts?  ", "Please rate from 1 to 5.  (1: Very rarely, 5: Very Often)"],
+    reply: [
+      {
+        question: "1",
+        answer: "q6"
+      },
+      {
+        question: "2",
+        answer: "q6"
+      },
+      {
+        question: "3",
+        answer: "q6"
+      },
+      {
+        question: "4",
+        answer: "q6"
+      },
+      {
+        question: "5",
+        answer: "q6"
+      }
+    ]
+  },
+  q6: {
+    says: ["I see.", "Have you been diagnosed with any of form of depression in the past?  ", "Please answer Yes or No."],
+    reply: [
+      {
+        question: "yes",
+        answer: "q7"
+      },
+      {
+        question: "no",
+        answer: "q7"
+      }
+    ]
+  },
+  q7: {
     says: ["I see.", "Have you been diagnosed with any form of depression after you started going to this University?  ", "Please answer Yes or No."],
     reply: [
       {
         question: "yes",
-        answer: "endChat"
+        answer: "result1"
       },
       {
         question: "no",
-        answer: "endChat"
+        answer: "result2"
       }
     ]
   },
-  endChat: {
-    says: ["Okay. Please wait for a moment.  ", "It will take me 3 minutes to assign you a therapist.  ", "-End Of Chat-"],
+  result1: {
+    says: ["Okay.", "Based on what you've stated, I strongly recommend you seek treatment from one of our therapists.  ", "Are you okay with that?"],
+    reply: [
+      {
+        question: "yes",
+        answer: "endChat1"
+      },
+      {
+        question: "ok",
+        answer: "endChat1"
+      },
+      {
+        question: "okay",
+        answer: "endChat1"
+      },
+      {
+        question: "no",
+        answer: "endChat2"
+      }
+    ]
+  },
+  result2: {
+    says: ["Great!", "I am happy to inform you that your mental health is in a good state!", "Would you still want me to assign you a therapist?"],
+    reply: [
+      {
+        question: "yes",
+        answer: "endChat1"
+      },
+      {
+        question: "ok",
+        answer: "endChat1"
+      },
+      {
+        question: "okay",
+        answer: "endChat1"
+      },
+      {
+        question: "no",
+        answer: "endChat2"
+      }
+    ]
+  },
+  endChat1: {
+    says: ["Great!", "Please wait for a moment.", "Type Ok if you're ready."],
+    reply: [
+      {
+        question: "ok",
+        answer: "consult"
+      },
+      {
+        question: "okay",
+        answer: "consult"
+      }
+    ]
+  },
+  endChat2: {
+    says: ["I understand.", "Please don't hesitate to find me if needed!  ", "Have a nice day!"],
+    reply: [
+    ]
+  },
+  consult: {
+    says: ["--Direct to other page--"],
     reply: [
     ]
   }
